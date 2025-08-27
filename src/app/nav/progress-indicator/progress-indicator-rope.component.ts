@@ -92,12 +92,15 @@ export class ProgressIndicatorRopeComponent implements AfterViewInit, OnDestroy 
   speed: number = 1
   @Input()
   strokeWidth: number = 4
+  @Input()
+  keepBallSize: boolean = false
 
   @Output()
   onComplete = new EventEmitter<void>()
 
   private t = 0
   private animationFrameId!: number
+  private reverse: boolean = false
 
   @ViewChild('ballRef')
   ball!: ElementRef<SVGCircleElement>
@@ -114,9 +117,31 @@ export class ProgressIndicatorRopeComponent implements AfterViewInit, OnDestroy 
   ngAfterViewInit() {
     this.conLeft?.nativeElement.setAttribute('r', (this.ballRadius / 2).toString())
     this.conRight?.nativeElement.setAttribute('r', (this.ballRadius / 2).toString())
+    if (this.keepBallSize) {
+      this.ball.nativeElement.setAttribute('r', this.ballRadius.toString())
+    }
+  }
+
+  startAnimationReverse() {
+    this.t = 1
+    this.reverse = true
+    gsap.timeline()
+      .to(this.ball.nativeElement, {
+        duration: .5,
+        attr: { r: this.ballRadius.toString() },
+        ease: 'ease'
+      })
+      .to(this.rope.nativeElement, {
+        duration: .08,
+        attr: { d: 'M 0 100 Q 555 145 600 100' },
+        ease: 'ease',
+        onComplete: () => this.animate()
+      }, '<+=.3')
   }
 
   startAnimation() {
+    this.t = 0
+    this.reverse = false
     gsap.timeline()
       .to(this.ball.nativeElement, {
         duration: .5,
@@ -128,7 +153,15 @@ export class ProgressIndicatorRopeComponent implements AfterViewInit, OnDestroy 
         attr: { d: 'M 0 100 Q 45 145 600 100' },
         ease: 'ease',
         onComplete: () => this.animate()
-    }, '<+=.3')
+      }, '<+=.3')
+  }
+
+  shrinkBall() {
+    this.ball.nativeElement.setAttribute('r', '0')
+  }
+
+  expandBall() {
+    this.ball.nativeElement.setAttribute('r', this.ballRadius.toString())
   }
 
   private stopAnimation() {
@@ -141,19 +174,19 @@ export class ProgressIndicatorRopeComponent implements AfterViewInit, OnDestroy 
       })
       .to(this.ball.nativeElement, {
         duration: .5,
-        attr: { r: '0' },
+        attr: { r: this.keepBallSize ? this.ballRadius.toString() : '0' },
         ease: 'ease',
         onComplete: () => this.onComplete.emit()
       }, '<')
   }
 
   private animate() {
-    if (this.t > 1) {
+    if (this.t < 0 || this.t > 1) {
       this.ball.nativeElement.setAttribute('cy', '100')
       this.stopAnimation()
       return
     }
-    this.t += 0.018 * this.speed
+    this.t = this.reverse ? this.t - .018 * this.speed : this.t + .018 * this.speed
 
     // Ball moves left → right
     const x =  Math.min(600 * (this.t), 600)
