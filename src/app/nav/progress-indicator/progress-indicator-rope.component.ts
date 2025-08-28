@@ -144,7 +144,7 @@ export class ProgressIndicatorRopeComponent implements AfterViewInit, OnDestroy 
     this.reverse = false
     gsap.timeline()
       .to(this.ball.nativeElement, {
-        duration: .5,
+        duration: .2,
         attr: { r: this.ballRadius.toString() },
         ease: 'ease'
       })
@@ -153,7 +153,7 @@ export class ProgressIndicatorRopeComponent implements AfterViewInit, OnDestroy 
         attr: { d: 'M 0 100 Q 45 145 600 100' },
         ease: 'ease',
         onComplete: () => this.animate()
-      }, '<+=.3')
+      }, '<.2')
   }
 
   shrinkBall() {

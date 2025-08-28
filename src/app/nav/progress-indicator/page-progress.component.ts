@@ -51,6 +51,7 @@ import {ProgressIndicatorRopeComponent} from "./progress-indicator-rope.componen
   styles: [`
     :host {
       position: relative;
+      display: block;
       width: 30vw;
       height: 50px;
     }
@@ -107,6 +108,8 @@ export class PageProgressComponent implements AfterViewInit{
   private animationInProgress = false
   protected textAnimationIdx = 0
 
+  private targetIdx = 0
+
   @ViewChildren(ProgressIndicatorRopeComponent)
   ropes!: QueryList<ProgressIndicatorRopeComponent>;
 
@@ -115,21 +118,29 @@ export class PageProgressComponent implements AfterViewInit{
     this.ropes.get(2)?.shrinkBall()
   }
 
-  slideForward() {
-    if (this.currentIdx === (this.ropes.length - 1) || this.animationInProgress) return
+  slideToIndex(index: number) {
+    this.targetIdx = index
+    if (this.animationInProgress) return
+    if (this.currentIdx > this.targetIdx) {
+      this.executeSlideBackward()
+    } else if (this.currentIdx < this.targetIdx) {
+      this.executeSlideForward()
+    }
+  }
+
+  private executeSlideForward() {
+    this.animationInProgress = true
     if (this.currentIdx > 0) {
       this.ropes.get(this.currentIdx)?.expandBall()
       this.ropes.get(this.currentIdx - 1)?.shrinkBall()
     }
-    this.animationInProgress = true
     const cur = this.ropes.get(this.currentIdx)
     cur?.startAnimation()
     this.currentIdx += 1
     this.textAnimationIdx = this.currentIdx
   }
 
-  slideBackward() {
-    if (this.currentIdx === 0 || this.animationInProgress) return
+  private executeSlideBackward() {
     this.animationInProgress = true
     this.currentIdx -= 1
     const cur = this.ropes.get(this.currentIdx)
@@ -139,5 +150,8 @@ export class PageProgressComponent implements AfterViewInit{
 
   complete() {
     this.animationInProgress = false
+    if (this.targetIdx !== this.currentIdx) {
+      this.slideToIndex(this.targetIdx)
+    }
   }
 }

@@ -1,1 +1,62 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --color-font-bright: hsl(201 35% 94%);
+  --color-font-dark: hsl(201 14% 70%);
+  --color-font-dark-70: hsl(201 14% 70% / .3);
+  --color-background-primary: hsl(230, 20%, 6%);
+  --color-background-secondary: hsl(230, 20%, 11%);
+  --color-background-tertiary: hsl(230, 20%, 16%);
+  --color-border: hsl(230, 20%, 38%);
+  --accent: hsl(166, 100%, 50%);
+  --color-status-success: hsl(148, 100%, 34%);
+  --color-status-success-70: hsl(148 100% 34% / .7);
+  --color-glow: hsl(163 100% 59%);
+  --color-glow-70: hsl(163 100% 59% / .7);
+  --gradient: linear-gradient(0deg, var(--color-background-primary) 95%, var(--color-background-secondary));
+  --gradient-hover: linear-gradient(0deg, var(--color-background-primary), var(--color-background-secondary));
+  --shadow: 0px 2px 2px hsla(230, 20%, 38%, 0.07), 0px 4px 4px hsla(230, 20%, 38%, 0.15);
+
+  --font-size-xs: .75rem;
+  --font-size-s: .875rem;
+  --font-size-m: 1rem;
+  --font-size-l: 1.125rem;
+
+  --margin-xs: 8px;
+  --margin-s: 16px;
+  --margin-m: 32px;
+  --margin-l: 64px;
+
+  --line-height-header-ratio: 1;
+  --line-height-para-ratio: 1.5;
+
+  --letter-spacing-header: -1px;
+  --letter-spacing-cta: 1px;
+}
+
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--color-background-primary);
+  font-family: 'Inter', sans-serif;
+}
+
+html, body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  scroll-snap-type: y proximity;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url("../public/font/Inter-VariableFont_opsz,wght.ttf") format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
