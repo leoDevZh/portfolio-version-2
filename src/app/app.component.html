@@ -1,5 +1,5 @@
 <page-progress class="prog" #prog/>
 <hero #hero />
-<div #work class="next"></div>
-<connection #conRef/>
+<work #work id="work"/>
+<connection (animationComplete)="onAvatarAnimationComplete()" #conRef/>
 <div id="con-trigger" #conTrigger></div>

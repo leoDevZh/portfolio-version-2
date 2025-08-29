@@ -4,11 +4,12 @@ import {HeroComponent} from "./hero/hero.component";
 import {ConnectionComponent} from "./connection/connection.component";
 import gsap from "gsap";
 import {ScrollTrigger} from "gsap/ScrollTrigger";
+import {WorkComponent} from "./work/work.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [PageProgressComponent, HeroComponent, ConnectionComponent],
+  imports: [PageProgressComponent, HeroComponent, ConnectionComponent, WorkComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -64,4 +65,6 @@ export class AppComponent implements AfterViewInit {
     })
   }
 
+  onAvatarAnimationComplete() {
+  }
 }

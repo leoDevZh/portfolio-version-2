@@ -2,9 +2,11 @@
 :root {
   --color-font-bright: hsl(201 35% 94%);
   --color-font-dark: hsl(201 14% 70%);
-  --color-font-dark-70: hsl(201 14% 70% / .3);
+  --color-font-dark-30: hsl(201 14% 70% / .3);
+  --color-font-dark-05: hsl(201 14% 70% / .1);
   --color-background-primary: hsl(230, 20%, 6%);
   --color-background-secondary: hsl(230, 20%, 11%);
+  --color-background-secondary-70: hsl(230 20% 11% / .7);
   --color-background-tertiary: hsl(230, 20%, 16%);
   --color-border: hsl(230, 20%, 38%);
   --accent: hsl(166, 100%, 50%);
@@ -42,6 +44,8 @@
 
 body {
   background-color: var(--color-background-primary);
+  background-image: radial-gradient(var(--color-background-secondary-70) 1px, transparent 1px);
+  background-size: 20px 20px;
   font-family: 'Inter', sans-serif;
 }
 
@@ -51,7 +55,6 @@ html, body {
   -ms-user-select: none;
   user-select: none;
   -webkit-touch-callout: none;
-  scroll-snap-type: y proximity;
 }
 
 @font-face {
