@@ -20,8 +20,6 @@ type LinkTargetType = 'GITHUB' | 'LINKEDIN' | 'MAIL'
   styleUrl: './connection.component.css'
 })
 export class ConnectionComponent implements AfterViewInit {
-  @Output()
-  animationComplete = new EventEmitter<void>()
 
   @ViewChild('githubMorph', { read: SvgMorphAnimatorComponent })
   github!: SvgMorphAnimatorComponent

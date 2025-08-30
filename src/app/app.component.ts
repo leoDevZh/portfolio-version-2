@@ -64,7 +64,4 @@ export class AppComponent implements AfterViewInit {
       }
     })
   }
-
-  onAvatarAnimationComplete() {
-  }
 }
