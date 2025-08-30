@@ -53,7 +53,6 @@ import {
       display: flex;
       align-items: center;
       justify-content: center;
-      background-color: var(--color-background-primary);
     }
 
     .text-container {
