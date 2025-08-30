@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, EventEmitter, Output, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, HostListener, ViewChild} from '@angular/core';
 import {NgOptimizedImage} from "@angular/common";
 import gsap from "gsap";
 import {
@@ -46,6 +46,8 @@ export class ConnectionComponent implements AfterViewInit {
   cvRef!: ElementRef
 
   private tl!: any
+  private avatarActive = false
+  protected avatarShown = false
 
   ngAfterViewInit() {
     this.initAnimationTimeline()
@@ -53,11 +55,15 @@ export class ConnectionComponent implements AfterViewInit {
 
   playForward() {
     this.avatar.nativeElement.className = 'avatar'
+    this.avatarShown = true
     this.tl.play()
   }
 
   playBackward() {
     this.avatar.nativeElement.className = 'avatar'
+    this.avatarActive = false
+    this.avatarShown = false
+    this.displayLinks()
     this.tl.reverse()
   }
 
@@ -66,7 +72,7 @@ export class ConnectionComponent implements AfterViewInit {
     const avatarAnimationPositionX = this.avatar.nativeElement.getBoundingClientRect().left + this.avatar.nativeElement.getBoundingClientRect().width / 2
     const avatarAnimationPositionY = this.avatar.nativeElement.getBoundingClientRect().top + this.avatar.nativeElement.getBoundingClientRect().height / 2
 
-      this.tl = gsap.timeline({paused: true, onComplete: () => {this.glowTimeline(); this.animationComplete.emit()}, onReverseComplete: () => {this.avatar.nativeElement.classList.remove('puls')}  })
+      this.tl = gsap.timeline({paused: true, onComplete: () => {this.glowTimeline(); this.hideLinks(); this.avatarActive = true}, onReverseComplete: () => {this.avatar.nativeElement.classList.remove('puls')}  })
         .to(this.avatar.nativeElement, {
           opacity: 1,
           duration: 1.5,
@@ -135,11 +141,25 @@ export class ConnectionComponent implements AfterViewInit {
     .call(() => {this.avatar.nativeElement.classList.remove('glowing'); this.avatar.nativeElement.classList.add('shine')}, undefined, '<7.5')
   }
 
+  private displayLinks() {
+    this.githubRef.nativeElement.style.display = 'block'
+    this.linkedInRef.nativeElement.style.display = 'block'
+    this.mailRef.nativeElement.style.display = 'block'
+    this.cvRef.nativeElement.style.display = 'block'
+  }
+
+  private hideLinks() {
+    this.githubRef.nativeElement.style.display = 'none'
+    this.linkedInRef.nativeElement.style.display = 'none'
+    this.mailRef.nativeElement.style.display = 'none'
+    this.cvRef.nativeElement.style.display = 'none'
+  }
+
   private get avatarPositionLeft(): string {
     if (window.innerWidth > 600) {
       return 'var(--margin-m)'
     } else {
-      return `${window.innerWidth - 74}px`
+      return `${window.innerWidth - 58}px`
     }
   }
 
@@ -205,5 +225,17 @@ export class ConnectionComponent implements AfterViewInit {
 
   morphMailR() {
     this.mail.reverse()
+  }
+
+  onAvatarClick() {
+    this.playBackward()
+    this.avatarActive = true
+  }
+
+  @HostListener('window:scroll')
+  onScroll() {
+    if (this.avatarActive && !this.avatarShown) {
+      this.playForward()
+    }
   }
 }

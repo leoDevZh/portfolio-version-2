@@ -1,8 +1,8 @@
-<div class="avatar" #avatarRef>
+<div class="avatar" #avatarRef (click)="onAvatarClick()" >
   <img ngSrc="image/avatar.jpeg" alt="Avatar" fill>
 </div>
 
-<div class="cta-container">
+<div class="cta-container" [class.hide]="avatarShown">
   <div class="link-container">
     <a #githubRef (mouseenter)="morphGithub()" (mouseleave)="morphGithubR()" (click)="openExternalLink($event, 'GITHUB')" href="https://github.com/leoDevZh" target="_blank">
       <leo-svg-morph-animator #githubMorph triggerMode="manual" [duration]=".3">
@@ -24,4 +24,5 @@
     </a>
   </div>
   <leo-download-button #cvRef (click)="downloadCV()" class="cv-btn" text="Curriculum" iconColor="var(--font-color-dark)" iconSize="24px" />
+  <div class="background"></div>
 </div>
