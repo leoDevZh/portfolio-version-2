@@ -1,3 +1,8 @@
+:host {
+  position: relative;
+  z-index: var(--z-index-high-priority);
+}
+
 .cta-container {
   position: fixed;
   left: 50%;
@@ -18,7 +23,7 @@
   display: block;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
-  z-index: 4;
+  z-index: calc(var(--z-index-high-priority) - 1);
   transition: opacity 4.5s ease;
 }
 .cta-container.hide .background {
@@ -28,12 +33,12 @@
 
 .link-container {
   position: relative;
-  z-index: 5;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: var(--margin-s);
+  z-index: var(--z-index-high-priority);
 }
 
 .link-container > a {
@@ -45,13 +50,13 @@
 
 .cv-btn {
   position: relative;
-  z-index: 5;
   font-size: var(--font-size-s);
   background: transparent;
   color: var(--color-font-dark);
   border: none;
   border-bottom: 1px solid var(--accent);
   padding: 0 0 2px 0;
+  z-index: var(--z-index-high-priority);
 }
 .cv-btn:hover {
   color: var(--color-font-bright);
@@ -59,7 +64,6 @@
 
 .avatar {
   position: fixed;
-  z-index: 1;
   left: calc(50% - 21px);
   top: calc(2*var(--margin-m) + 50px);
   scale: 2;

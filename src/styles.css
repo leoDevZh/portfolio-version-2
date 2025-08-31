@@ -35,6 +35,9 @@
 
   --letter-spacing-header: -1px;
   --letter-spacing-cta: 1px;
+
+  --z-index-high-priority: 10;
+  --z-index-priority: 5;
 }
 
 

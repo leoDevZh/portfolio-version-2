@@ -29,7 +29,6 @@ import {CompanyCardComponent} from "./company-card/company-card.component";
     <company-title #comTitle class="com-title" name="silias" backgroundLetter="s"/>
     <company-title #comTitle class="com-title" name="swiss" backgroundLetter="s"/>
     <company-title #comTitle class="com-title" name="medical" backgroundLetter="m"/>
-
     <company-card #comCard
                   class="com-card"
                   [data]="{
@@ -46,7 +45,6 @@ import {CompanyCardComponent} from "./company-card/company-card.component";
                   'Implementing features, bug-fixing and optimizations for leading healthcare application on the swiss market']
                   }"
     />
-
     <company-card #comCard
                   class="com-card"
                   [data]="{
@@ -67,7 +65,6 @@ import {CompanyCardComponent} from "./company-card/company-card.component";
                   ]
                   }"
     />
-
     <company-card #comCard
                   class="com-card"
                   [data]="{
@@ -89,7 +86,6 @@ import {CompanyCardComponent} from "./company-card/company-card.component";
                   ]
                   }"
     />
-
     <company-card #comCard
                   class="com-card"
                   [data]="{
@@ -108,7 +104,6 @@ import {CompanyCardComponent} from "./company-card/company-card.component";
                   ]
                   }"
     />
-
     <company-card #comCard
                   class="com-card"
                   [data]="{
@@ -126,7 +121,6 @@ import {CompanyCardComponent} from "./company-card/company-card.component";
                   ]
                   }"
     />
-
     <leo-basic-index-indicator #idxIdc id="idx-idc" [numberOfSlides]="numOfSections" color="var(--color-font-dark-30)" selectedColor="var(--color-font-bright)"/>
   `,
   styles: [`
