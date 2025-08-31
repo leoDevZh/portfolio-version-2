@@ -10,6 +10,7 @@
   --color-background-tertiary: hsl(230, 20%, 16%);
   --color-border: hsl(230, 20%, 38%);
   --accent: hsl(166, 100%, 50%);
+  --accent-70: hsl(166 100% 50% / .7);
   --color-status-success: hsl(148, 100%, 34%);
   --color-status-success-70: hsl(148 100% 34% / .7);
   --color-glow: hsl(163 100% 59%);
@@ -27,6 +28,7 @@
   --margin-s: 16px;
   --margin-m: 32px;
   --margin-l: 64px;
+  --margin-xl: 128px;
 
   --line-height-header-ratio: 1;
   --line-height-para-ratio: 1.5;
