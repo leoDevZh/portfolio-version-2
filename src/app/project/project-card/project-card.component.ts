@@ -54,12 +54,12 @@ export interface ProjectCardData {
 
     :host:hover {
       --accent-percentage: 80%;
-      --highlight-percentage: 50%
+      --highlight-percentage: 70%
     }
 
     :host.highlight {
       --accent-percentage: 80%;
-      --highlight-percentage: 50%
+      --highlight-percentage: 70%
     }
 
     h2 {

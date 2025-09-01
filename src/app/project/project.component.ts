@@ -12,13 +12,13 @@ export type ProjectCategory = 'AI' | 'FS' | 'EDU'
   ],
   template: `
     <div class="category">
-      <div class="category-wrapper" (click)="highlight('AI')">
+      <div class="category-wrapper" [class.highlight]="category==='AI'" (click)="highlight('AI')">
         <p>{{ aiText }}</p>
       </div>
-      <div class="category-wrapper" (click)="highlight('FS')">
+      <div class="category-wrapper" [class.highlight]="category==='FS'" (click)="highlight('FS')">
         <p>Fullstack</p>
       </div>
-      <div class="category-wrapper" (click)="highlight('EDU')">
+      <div class="category-wrapper" [class.highlight]="category==='EDU'" (click)="highlight('EDU')">
         <p>University</p>
       </div>
     </div>
@@ -137,6 +137,9 @@ export type ProjectCategory = 'AI' | 'FS' | 'EDU'
     }
 
     .category-wrapper:hover {
+      --accent-percentage-category: 50%;
+    }
+    .category-wrapper.highlight {
       --accent-percentage-category: 50%;
     }
 
