@@ -96,7 +96,7 @@ import {
       height: 100vh;
     }
 
-    @media(max-width: 600px) {
+    @media(max-width: 768px) {
       .text-container {
         width: 80vw;
       }

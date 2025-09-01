@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, HostListener, inject, ViewChild} from '@angular/core';
 import {PageProgressComponent} from "./nav/progress-indicator/page-progress.component";
 import {HeroComponent} from "./hero/hero.component";
 import {ConnectionComponent} from "./connection/connection.component";
@@ -8,6 +8,7 @@ import {WorkComponent} from "./work/work.component";
 import {ProjectComponent} from "./project/project.component";
 import {EducationComponent} from "./education/education.component";
 import {FooterComponent} from "./footer/footer.component";
+import {MobileEvaluationService} from "./utils/mobile-evaluation.service";
 
 @Component({
   selector: 'app-root',
@@ -17,6 +18,9 @@ import {FooterComponent} from "./footer/footer.component";
   styleUrl: './app.component.css'
 })
 export class AppComponent implements AfterViewInit {
+
+  private mobileService = inject(MobileEvaluationService)
+  private el = inject(ElementRef)
 
   @ViewChild('prog', { read: PageProgressComponent})
   prog!: PageProgressComponent
@@ -40,6 +44,10 @@ export class AppComponent implements AfterViewInit {
   eduRef!: ElementRef
 
   ngAfterViewInit() {
+    if (this.mobileService.isMobil) {
+      this.el.nativeElement.classList.add('mobil')
+    }
+
     gsap.registerPlugin(ScrollTrigger)
     // init avatar animation
     gsap.to(this.conTrigger.nativeElement, {
@@ -93,5 +101,14 @@ export class AppComponent implements AfterViewInit {
         onEnterBack: () => this.prog.slideToIndex(3)
       }
     })
+  }
+
+  @HostListener('window:resize')
+  onResize() {
+    if (this.mobileService.isMobil) {
+      this.el.nativeElement.classList.add('mobil')
+    } else {
+      this.el.nativeElement.classList.remove('mobil')
+    }
   }
 }

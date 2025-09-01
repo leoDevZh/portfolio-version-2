@@ -42,7 +42,7 @@ import {Component, Input} from '@angular/core';
       opacity: .08;
     }
 
-    @media(max-width: 600px) {
+    @media(max-width: 768px) {
       span:first-child {
         font-size: 40rem;
       }

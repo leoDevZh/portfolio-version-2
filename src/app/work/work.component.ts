@@ -14,6 +14,7 @@ import gsap from 'gsap'
 import {ScrollTrigger} from "gsap/ScrollTrigger";
 import {BasicIndexIndicatorComponent} from "../../../../../../library-workspace/dist/leo-ui-styles";
 import {CompanyCardComponent} from "./company-card/company-card.component";
+import {MobileEvaluationService} from "../utils/mobile-evaluation.service";
 
 @Component({
   selector: 'work',
@@ -167,7 +168,7 @@ export class WorkComponent implements AfterViewInit {
 
   private currentIdx = 0
   private targetIdx = signal<number>(0)
-  private height: number = window.innerWidth > 600 ? 6000 : 3000
+  private height: number = !inject(MobileEvaluationService).isMobil ? 6000 : 3000
   protected numOfSections = 4
   private componentHeight = 0
   private sectionHeight = 0

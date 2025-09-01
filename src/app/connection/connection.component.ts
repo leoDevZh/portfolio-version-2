@@ -1,10 +1,11 @@
-import {AfterViewInit, Component, ElementRef, HostListener, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, HostListener, inject, ViewChild} from '@angular/core';
 import {NgOptimizedImage} from "@angular/common";
 import gsap from "gsap";
 import {
   DownloadButtonComponent,
   SvgMorphAnimatorComponent
 } from "../../../../../../library-workspace/dist/leo-ui-styles";
+import {MobileEvaluationService} from "../utils/mobile-evaluation.service";
 
 type LinkTargetType = 'GITHUB' | 'LINKEDIN' | 'MAIL'
 
@@ -48,6 +49,7 @@ export class ConnectionComponent implements AfterViewInit {
   private tl!: any
   private avatarActive = false
   protected avatarShown = false
+  private mobileService = inject(MobileEvaluationService)
 
   ngAfterViewInit() {
     this.initAnimationTimeline()
@@ -156,7 +158,7 @@ export class ConnectionComponent implements AfterViewInit {
   }
 
   private get avatarPositionLeft(): string {
-    if (window.innerWidth > 600) {
+    if (!this.mobileService.isMobil) {
       return 'var(--margin-m)'
     } else {
       return `${window.innerWidth - 58}px`
@@ -164,7 +166,7 @@ export class ConnectionComponent implements AfterViewInit {
   }
 
   private get avatarPositionTop(): string {
-    if (window.innerWidth > 600) {
+    if (!this.mobileService.isMobil) {
       return 'var(--margin-m)'
     } else {
       return `${window.innerHeight - 74}px`

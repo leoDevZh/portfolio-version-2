@@ -2,6 +2,7 @@ import {AfterViewInit, Component, ElementRef, HostBinding, inject, ViewChild} fr
 import gsap from 'gsap'
 import {ScrollTrigger} from "gsap/ScrollTrigger";
 import {SplitText} from "gsap/SplitText";
+import {MobileEvaluationService} from "../utils/mobile-evaluation.service";
 
 @Component({
   selector: 'education',
@@ -88,7 +89,7 @@ import {SplitText} from "gsap/SplitText";
       position: relative;
       display: grid;
       align-items: center;
-      width: 700px;
+      width: 750px;
       min-height: 60px;
       grid-template-columns: 1fr 1fr;
     }
@@ -114,6 +115,7 @@ import {SplitText} from "gsap/SplitText";
     .grid:nth-child(2n) .milestone {
       grid-column: 2 / span 1;
       justify-items: end;
+      text-align: end;
     }
 
     .milestone {
@@ -164,6 +166,7 @@ import {SplitText} from "gsap/SplitText";
       .grid .milestone, .grid:nth-child(2n) .milestone {
         grid-column: 1 / span 1;
         justify-items: center;
+        text-align: center;
       }
 
       .milestone {
@@ -182,7 +185,7 @@ import {SplitText} from "gsap/SplitText";
 })
 export class EducationComponent implements AfterViewInit {
 
-  private isMobile = window.innerWidth < 600
+  private isMobile = inject(MobileEvaluationService).isMobil
 
   @ViewChild('content', { read: ElementRef })
   contentRef!: ElementRef

@@ -1,5 +1,6 @@
-import {Component, HostBinding, HostListener} from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {ProjectCardComponent} from "./project-card/project-card.component";
+import {MobileEvaluationService} from "../utils/mobile-evaluation.service";
 
 export type ProjectCategory = 'AI' | 'FS' | 'EDU'
 
@@ -215,7 +216,7 @@ export class ProjectComponent {
 
   protected category?: ProjectCategory
 
-  private isMobil =  window.innerWidth < 600
+  private isMobil =  inject(MobileEvaluationService).isMobil
 
   get aiText() {
     return this.isMobil ? 'AI' : 'Artificial Intelligence'
