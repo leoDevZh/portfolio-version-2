@@ -99,7 +99,7 @@ import {MobileEvaluationService} from "../../utils/mobile-evaluation.service";
 
     @media (max-width: 768px) {
       :host {
-        width: 60vw;
+        width: 65vw;
       }
     }
   `]
