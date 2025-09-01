@@ -18,10 +18,10 @@ import gsap from 'gsap'
   template: `
     <div class="rope-wrapper">
       <svg class="rope-layer" viewBox="0 0 600 200">
-        <path #ropeRef class="rope" d="M 0 100 Q 300 100 600 100" />
+        <path #ropeRef class="rope" d="M 0 100 Q 300 100 600 100" vector-effect="non-scaling-stroke"/>
       </svg>
       <svg class="ball-layer" viewBox="0 0 600 200">
-        <circle #ballRef class="ball" r="0" cx="0" cy="100" />
+        <circle #ballRef class="ball" r="0" cx="0" cy="100"/>
       </svg>
       @if (displayConnector === 'LEFT' || displayConnector === 'BOTH') {
         <svg class="ball-layer" viewBox="0 0 600 200">
@@ -115,8 +115,8 @@ export class ProgressIndicatorRopeComponent implements AfterViewInit, OnDestroy 
   conRight?: ElementRef<SVGCircleElement>
 
   ngAfterViewInit() {
-    this.conLeft?.nativeElement.setAttribute('r', (this.ballRadius / 2).toString())
-    this.conRight?.nativeElement.setAttribute('r', (this.ballRadius / 2).toString())
+    this.conLeft?.nativeElement.setAttribute('r', (this.ballRadius * .75).toString())
+    this.conRight?.nativeElement.setAttribute('r', (this.ballRadius * .75).toString())
     if (this.keepBallSize) {
       this.ball.nativeElement.setAttribute('r', this.ballRadius.toString())
     }

@@ -1,9 +1,7 @@
 import {AfterViewInit, Component, ElementRef, inject, ViewChild} from '@angular/core';
-import {
-  ElementAnimatorComponent,
-  SquareBoarderMouseFollowerComponent,
-  TextScrambleComponent
-} from "../../../../../../library-workspace/dist/leo-ui-styles";
+import {SquareBoarderMouseFollowerComponent} from "../utils/square-boarder-mouse-follower.component";
+import {TextScrambleComponent} from "../utils/text-scramble.compontent";
+import {ElementAnimatorComponent} from "../utils/element-animator.component";
 
 
 @Component({
@@ -25,8 +23,8 @@ import {
     >
       <div class="text-container">
         <p id="p-one">Hello, my name is</p>
-        <h2 id="name">Andrin Fassbind</h2>
-        <h2 id="title">
+        <h1 id="name">Andrin Fassbind</h1>
+        <h1 id="title">
           I'm a Software
           <leo-scramble-text
             #textRef
@@ -36,7 +34,7 @@ import {
             (animationComplete)="onComplete()"
             (animationReverseComplete)="onReverseComplete()"
           >Developer</leo-scramble-text>
-        </h2>
+        </h1>
         <p id="p-two">
           Whether it's at work or in my free time, I deeply value the moments I spend working on projects or diving into programming books. With my passion for programming, I can genuinely say, "I never work a day in my life - it's what I love to do."
         </p>

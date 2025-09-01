@@ -1,11 +1,9 @@
 import {AfterViewInit, Component, ElementRef, HostListener, inject, ViewChild} from '@angular/core';
 import {NgOptimizedImage} from "@angular/common";
 import gsap from "gsap";
-import {
-  DownloadButtonComponent,
-  SvgMorphAnimatorComponent
-} from "../../../../../../library-workspace/dist/leo-ui-styles";
 import {MobileEvaluationService} from "../utils/mobile-evaluation.service";
+import {DownloadButtonComponent} from "../utils/download-button.component";
+import {SvgMorphAnimatorComponent} from "../utils/svg-morph-animator.component";
 
 type LinkTargetType = 'GITHUB' | 'LINKEDIN' | 'MAIL'
 

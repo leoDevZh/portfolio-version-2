@@ -12,9 +12,9 @@ import {
 import {CompanyTitleComponent} from "./company-title/company-title.component";
 import gsap from 'gsap'
 import {ScrollTrigger} from "gsap/ScrollTrigger";
-import {BasicIndexIndicatorComponent} from "../../../../../../library-workspace/dist/leo-ui-styles";
 import {CompanyCardComponent} from "./company-card/company-card.component";
 import {MobileEvaluationService} from "../utils/mobile-evaluation.service";
+import {BasicIndexIndicatorComponent} from "../utils/basic-index-indicator.component";
 
 @Component({
   selector: 'work',

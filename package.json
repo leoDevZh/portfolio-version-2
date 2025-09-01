@@ -19,7 +19,6 @@
     "@angular/platform-browser-dynamic": "^18.2.0",
     "@angular/router": "^18.2.0",
     "gsap": "^3.13.0",
-    "leo-ui-styles": "file:../../../library-workspace/dist/leo-ui-styles",
     "libphonenumber-js": "^1.12.14",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",

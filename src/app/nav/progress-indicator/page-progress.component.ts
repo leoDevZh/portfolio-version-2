@@ -1,5 +1,6 @@
-import {AfterViewInit, Component, QueryList, ViewChildren} from "@angular/core";
+import {AfterViewInit, Component, inject, QueryList, ViewChildren} from "@angular/core";
 import {ProgressIndicatorRopeComponent} from "./progress-indicator-rope.component";
+import {MobileEvaluationService} from "../../utils/mobile-evaluation.service";
 
 @Component({
   selector: 'page-progress',
@@ -20,8 +21,8 @@ import {ProgressIndicatorRopeComponent} from "./progress-indicator-rope.componen
         [ballColor]="'var(--color-font-bright)'"
         [ropeColor]="'var(--color-font-dark)'"
         [speed]="2"
-        [strokeWidth]="6"
-        [ballRadius]="18"
+        [strokeWidth]="2"
+        [ballRadius]="isMobile ? 30 : 18"
         [keepBallSize]="true"
       />
       <progress-indicator-rope
@@ -31,8 +32,8 @@ import {ProgressIndicatorRopeComponent} from "./progress-indicator-rope.componen
         [ballColor]="'var(--color-font-bright)'"
         [ropeColor]="'var(--color-font-dark)'"
         [speed]="2"
-        [strokeWidth]="6"
-        [ballRadius]="18"
+        [strokeWidth]="2"
+        [ballRadius]="isMobile ? 30 : 18"
         [keepBallSize]="true"
       />
       <progress-indicator-rope
@@ -42,8 +43,8 @@ import {ProgressIndicatorRopeComponent} from "./progress-indicator-rope.componen
         [ballColor]="'var(--color-font-bright)'"
         [ropeColor]="'var(--color-font-dark)'"
         [speed]="2"
-        [strokeWidth]="6"
-        [ballRadius]="18"
+        [strokeWidth]="2"
+        [ballRadius]="isMobile ? 30 : 18"
         [keepBallSize]="true"
       />
     </div>
@@ -84,18 +85,19 @@ import {ProgressIndicatorRopeComponent} from "./progress-indicator-rope.componen
 
     .rope-container {
       position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      inset: 0;
       display: flex;
       flex-direction: row;
     }
 
     .idc {
+      position: relative;
+      top: -20px;
       width: 33.33%;
+      height: 100px;
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
       :host {
         width: 60vw;
       }
@@ -104,11 +106,11 @@ import {ProgressIndicatorRopeComponent} from "./progress-indicator-rope.componen
 })
 export class PageProgressComponent implements AfterViewInit{
 
+  protected isMobile = inject(MobileEvaluationService).isMobil
+  protected textAnimationIdx = 0
+  private targetIdx = 0
   private currentIdx = 0
   private animationInProgress = false
-  protected textAnimationIdx = 0
-
-  private targetIdx = 0
 
   @ViewChildren(ProgressIndicatorRopeComponent)
   ropes!: QueryList<ProgressIndicatorRopeComponent>;

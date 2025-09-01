@@ -13,6 +13,9 @@
     "isolatedModules": true,
     "esModuleInterop": true,
     "sourceMap": true,
+    "paths": {
+      "leo-ui-styles": ["../../../library-workspace/dist/leo-ui-styles"]
+    },
     "declaration": false,
     "experimentalDecorators": true,
     "moduleResolution": "bundler",
