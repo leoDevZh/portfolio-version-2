@@ -37,7 +37,7 @@ import {CompanyCardComponent} from "./company-card/company-card.component";
                   pensum: '100',
                   location: 'Zurich',
                   hashtag: 'HealthTech',
-                  company: { name: 'ergon', url: 'https://www.ergon.ch'},
+                  company: { name: 'Ergon', url: 'https://www.ergon.ch'},
                   imageUrl: 'image/axenita.png',
                   techStack: ['Angular', 'JaxRs', 'Webpack', 'Gradle', 'Java', 'JUnit', 'Typescript', 'OpenAPI', 'Git'],
                   description: [
@@ -53,7 +53,7 @@ import {CompanyCardComponent} from "./company-card/company-card.component";
                   pensum: '100',
                   location: 'Zurich',
                   hashtag: 'FinTech',
-                  company: { name: 'ergon', url: 'https://www.ergon.ch'},
+                  company: { name: 'Ergon', url: 'https://www.ergon.ch'},
                   imageUrl: 'image/viac.png',
                   techStack: ['Angular', 'JaxRs', 'Kotlin', 'JUnit', 'Jasmine', 'Typescript', 'Git', 'CSS', 'SQL'],
                   description: [
@@ -73,7 +73,7 @@ import {CompanyCardComponent} from "./company-card/company-card.component";
                   pensum: '20',
                   location: 'Zurich',
                   hashtag: 'EdTech',
-                  company: { name: 'silias', url: 'https://www.silias.ch'},
+                  company: { name: 'Silias', url: 'https://www.silias.ch'},
                   imageUrl: 'image/silias.jpg',
                   techStack: ['NextJs', 'ExpressJs', 'Payment API', 'Typescript', 'Jasmine', 'SQL', 'CSS', 'Git'],
                   description: [
@@ -94,7 +94,7 @@ import {CompanyCardComponent} from "./company-card/company-card.component";
                   pensum: '100',
                   location: 'Zurich',
                   hashtag: 'Aviation',
-                  company: { name: 'swiss', url: 'https://www.swiss.com'},
+                  company: { name: 'Swiss', url: 'https://www.swiss.com'},
                   imageUrl: 'image/swiss.jpg',
                   techStack: ['Customer Care', 'English', 'Flexibility', 'Go the extra mile', 'Cultures', 'Teamwork'],
                   description: [
