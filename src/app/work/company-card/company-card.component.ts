@@ -82,16 +82,20 @@ export interface CompanyCardData {
       grid-row: 1 / span 1;
       align-self: center;
       justify-self: center;
+      margin-bottom: var(--margin-s);
     }
 
     .period-container, .job-meta {
       display: flex;
-      gap: var(--margin-xs);
       align-items: center;
       font-size: var(--font-size-m);
       color: var(--color-font-dark);
       line-height: calc(var(--line-height-para-ratio) * var(--font-size-m));
     }
+    .period-container {
+      gap: var(--margin-xs);
+    }
+
     .period-container > svg, .job-meta svg {
       width: 14px;
       height: 14px;
@@ -106,8 +110,7 @@ export interface CompanyCardData {
     }
 
     .job-meta {
-      gap: var(--margin-m) !important;
-      margin-bottom: var(--margin-s);
+      gap: var(--margin-m);
     }
     .job-meta > div {
       display: flex;
@@ -118,7 +121,6 @@ export interface CompanyCardData {
       line-height: calc(var(--line-height-para-ratio) * var(--font-size-s));
     }
     .job-meta a {
-      font-size: var(--font-size-s);
       color: var(--color-font-dark);
       text-decoration: none;
       border-bottom: 1px solid var(--accent);
@@ -197,7 +199,7 @@ export interface CompanyCardData {
       }
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
       :host {
         height: fit-content;
         grid-template-columns: 1fr;
@@ -211,6 +213,11 @@ export interface CompanyCardData {
         align-self: center;
         width: 90vw;
         max-width: 400px;
+        margin-bottom: unset;
+      }
+
+      .job-meta {
+        gap: var(--margin-s);
       }
 
       .tech-stack {
@@ -220,6 +227,7 @@ export interface CompanyCardData {
         align-self: center;
         width: 90vw;
         max-width: 400px;
+        margin-bottom: unset;
       }
 
       .job-desc {
