@@ -7,11 +7,12 @@ import {ScrollTrigger} from "gsap/ScrollTrigger";
 import {WorkComponent} from "./work/work.component";
 import {ProjectComponent} from "./project/project.component";
 import {EducationComponent} from "./education/education.component";
+import {FooterComponent} from "./footer/footer.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [PageProgressComponent, HeroComponent, ConnectionComponent, WorkComponent, ProjectComponent, EducationComponent],
+  imports: [PageProgressComponent, HeroComponent, ConnectionComponent, WorkComponent, ProjectComponent, EducationComponent, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -75,7 +76,7 @@ export class AppComponent implements AfterViewInit {
     gsap.to(this.projectRef.nativeElement, {
       scrollTrigger: {
         trigger: this.projectRef.nativeElement,
-        start: 'top 20%',
+        start: 'top 25%',
         end: 'bottom 75%',
         onEnter: () => this.prog.slideToIndex(2),
         onEnterBack: () => this.prog.slideToIndex(2),
