@@ -1,4 +1,4 @@
-import {Component, HostListener} from '@angular/core';
+import {Component, HostBinding, HostListener} from '@angular/core';
 import {ProjectCardComponent} from "./project-card/project-card.component";
 
 export type ProjectCategory = 'AI' | 'FS' | 'EDU'
@@ -31,6 +31,16 @@ export type ProjectCategory = 'AI' | 'FS' | 'EDU'
                 imgUrl: 'image/rl.jpg',
                 link: 'https://github.com/leoDevZh/Snake',
                 keywords: ['AI']
+            }"
+        [search]="category"
+      />
+      <project-card
+        [data]="{
+                title: 'Frontend - Angular UI Library',
+                techStack: ['Angular', 'Git'],
+                description: 'To reduce repetitive coding I started to create a custom UI Library for my Angular projects.<br><br>I have not only gained more efficiency but also gained a lot of know how in Angular.',
+                imgUrl: 'image/angularUi.jpg',
+                keywords: ['FS']
             }"
         [search]="category"
       />

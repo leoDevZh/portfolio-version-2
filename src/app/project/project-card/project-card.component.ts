@@ -1,4 +1,4 @@
-import {Component, ElementRef, HostListener, inject, Input, OnChanges, SimpleChanges} from '@angular/core';
+import {Component, ElementRef, HostBinding, HostListener, inject, Input, OnChanges, SimpleChanges} from '@angular/core';
 import {ProjectCategory} from "../project.component";
 
 export interface ProjectCardData {
@@ -49,7 +49,6 @@ export interface ProjectCardData {
       border: 1px solid transparent;
       background: linear-gradient(var(--color-background-secondary) var(--highlight-percentage), var(--color-background-primary)) padding-box,
       linear-gradient(0deg, var(--accent-70) 0%, var(--color-background-tertiary) var(--accent-percentage)) border-box;
-      cursor: pointer;
       transition: --accent-percentage .5s ease;
     }
 
@@ -221,5 +220,11 @@ export class ProjectCardComponent implements OnChanges {
     } else {
       this.el.nativeElement.classList.remove('highlight')
     }
+  }
+
+
+  @HostBinding('style.cursor')
+  get cursorStyle() {
+    return this.data.link ? 'pointer' : 'auto'
   }
 }
