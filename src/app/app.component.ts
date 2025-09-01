@@ -6,11 +6,12 @@ import gsap from "gsap";
 import {ScrollTrigger} from "gsap/ScrollTrigger";
 import {WorkComponent} from "./work/work.component";
 import {ProjectComponent} from "./project/project.component";
+import {EducationComponent} from "./education/education.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [PageProgressComponent, HeroComponent, ConnectionComponent, WorkComponent, ProjectComponent],
+  imports: [PageProgressComponent, HeroComponent, ConnectionComponent, WorkComponent, ProjectComponent, EducationComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -33,6 +34,9 @@ export class AppComponent implements AfterViewInit {
 
   @ViewChild('project', { read: ElementRef })
   projectRef!: ElementRef
+
+  @ViewChild('edu', { read: ElementRef })
+  eduRef!: ElementRef
 
   ngAfterViewInit() {
     gsap.registerPlugin(ScrollTrigger)
@@ -76,6 +80,16 @@ export class AppComponent implements AfterViewInit {
         onEnter: () => this.prog.slideToIndex(2),
         onEnterBack: () => this.prog.slideToIndex(2),
         onLeaveBack: () => this.prog.slideToIndex(1)
+      }
+    })
+
+    gsap.to(this.eduRef.nativeElement, {
+      scrollTrigger: {
+        trigger: this.eduRef.nativeElement,
+        start: 'top 20%',
+        end: 'bottom 75%',
+        onEnter: () => this.prog.slideToIndex(3),
+        onEnterBack: () => this.prog.slideToIndex(3)
       }
     })
   }
