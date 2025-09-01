@@ -45,9 +45,8 @@ export class AppComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     if (this.mobileService.isMobil) {
-      this.el.nativeElement.classList.add('mobil')
+      document.body.classList.add('mobile')
     }
-
     gsap.registerPlugin(ScrollTrigger)
     // init avatar animation
     gsap.to(this.conTrigger.nativeElement, {
@@ -106,9 +105,9 @@ export class AppComponent implements AfterViewInit {
   @HostListener('window:resize')
   onResize() {
     if (this.mobileService.isMobil) {
-      this.el.nativeElement.classList.add('mobil')
+      document.body.classList.add('mobile')
     } else {
-      this.el.nativeElement.classList.remove('mobil')
+      document.body.classList.remove('mobile')
     }
   }
 }
