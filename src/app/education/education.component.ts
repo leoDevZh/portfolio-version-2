@@ -66,16 +66,17 @@ import {MobileEvaluationService} from "../utils/mobile-evaluation.service";
       flex-direction: column;
       align-items: center;
       width: 100vw;
-      min-height: 200vh;
-      overflow-y: hidden;
+      min-height: 100vh;
     }
 
     .content {
-      position: absolute;
-      top: var(--content-top);
+      position: relative;
+      height: fit-content;
+      margin-top: var(--content-top);
       display: grid;
       justify-items: center;
       align-items: center;
+      margin-bottom: var(--margin-xl);
     }
 
     h1 {
@@ -147,7 +148,7 @@ import {MobileEvaluationService} from "../utils/mobile-evaluation.service";
       fill: var(--color-font-bright);
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
       .grid {
         position: relative;
         display: grid;
@@ -201,8 +202,8 @@ export class EducationComponent implements AfterViewInit {
       scrollTrigger: {
         scrub: true,
         trigger: this.contentRef.nativeElement,
-        start: `top ${this.isMobile ? '15%' : '35%'}`,
-        end: '+=65%',
+        start: `top 45%`,
+        end: 'top 10%',
         toggleActions: 'play none reverse none',
       }
     })
@@ -210,12 +211,9 @@ export class EducationComponent implements AfterViewInit {
     const grids = this.timelineRef.nativeElement.querySelectorAll('.grid') as HTMLElement[]
     const tl = gsap.timeline({
       scrollTrigger: {
-        pin: true,
-        pinSpacing: true,
-        scrub: true,
         trigger: this.contentRef.nativeElement,
-        start: `top ${this.isMobile ? '15%' : '35%'}`,
-        end: '+=65%',
+        start: `top 45%`,
+        end: 'top 45%',
         toggleActions: 'play none reverse none',
       }
     })
@@ -223,8 +221,8 @@ export class EducationComponent implements AfterViewInit {
     grids.forEach(grid => {
       tl.from(grid, {
         opacity: 0,
-        y: 50
-      }, '>')
+        y: 50,
+      }, '<')
 
       const split = SplitText.create(grid.querySelector('.milestone > span:last-child'), { type: 'words', mask: 'words' })
       tl.from(split.words, {
@@ -237,7 +235,6 @@ export class EducationComponent implements AfterViewInit {
 
   @HostBinding('style.--content-top')
   get contentTopStyle() {
-    const percentage = this.isMobile ? .35 : .35
-    return `${window.innerHeight * percentage}px`
+    return `${window.innerHeight * .35}px`
   }
 }
