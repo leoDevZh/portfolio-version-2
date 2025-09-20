@@ -26,9 +26,20 @@ export type ProjectCategory = 'AI' | 'FS' | 'EDU'
     <div class="project-container">
       <project-card
         [data]="{
+                title: 'Real Time Speech to Text Transcription',
+                techStack: ['Python', 'FastAPI', 'MediaRecorder', 'Typescript', 'Angular', 'GSAP', 'CSS'],
+                description: 'Fascinated about AI I have implemented a MVP for a real-time speech to text transcription.<br><br>For the backend achieving parallelism on CPU heavy tasks a ProcessPools is used. Maintainable code in the frontend is achieved by defining clear responsibilities.',
+                imgUrl: 'image/aimb.jpg',
+                link: 'https://github.com/leoDevZh/SpeechToTextMvp',
+                keywords: ['AI', 'FS']
+            }"
+        [search]="category"
+      />
+      <project-card
+        [data]="{
                 title: 'Reinforcement Learning - Snake',
                 techStack: ['Python', 'Pytorch', 'PyGame', 'PyPlot', 'Mathematics'],
-                description: 'Fascinated about Reinforcement Learning I have implemented a RL-Framework and a RL-Environment, simulating Snake. I implemented 2 different RL-Algorithms to train a shallow neural network and compared their training and test performance.<br><br> Check out the project and observe the training of the model or the performance of my neural networks in real life. To make it even more fun everything is visualized with PyGame.',
+                description: 'Fascinated about Reinforcement Learning I have implemented a RL-Framework and a RL-Environment, simulating Snake. I implemented 2 different RL-Algorithms to train a shallow Neural Network and compared their training and test performance.<br><br> Check out the project and observe the training of the model or the performance of my neural networks in real life. To make it even more fun everything is visualized with PyGame.',
                 imgUrl: 'image/rl.jpg',
                 link: 'https://github.com/leoDevZh/Snake',
                 keywords: ['AI']
@@ -82,7 +93,7 @@ export type ProjectCategory = 'AI' | 'FS' | 'EDU'
         [data]="{
                 title: 'Bachelor Thesis - Prosodic Feature Modeling',
                 techStack: ['Pytorch', 'Python', 'Mathematics', 'Docker', 'Linux'],
-                description: 'Challenging 3 years of my Computer Science Bachelor came to an end. And with that I had the opportunity to do my research in prosodic feature modelling. Together with my fellow student Fabian Bosshard.<br><br>Having the privilege to be mentored by Prof. Dr. Thilo Stadelmann I could level up my theoretical knowledge in Neural Networks by decades. With access to the computer infrastructure from the ZhaW Centre for Artificial Intelligence it even was fun.',
+                description: 'Challenging 3 years of my Computer Science Bachelor came to an end. And with that I had the opportunity to do my research in prosodic feature modelling, together with my fellow student Fabian Bosshard.<br><br>Having the privilege to be mentored by Prof. Dr. Thilo Stadelmann I could level up my theoretical knowledge in Neural Networks by decades. With access to the computer infrastructure from the ZhaW Centre for Artificial Intelligence it even was fun.',
                 imgUrl: 'image/thesis.png',
                 link: 'https://www.zhaw.ch/storage/engineering/institute-zentren/cai/studentische_arbeiten/Spring_2024/BA_FS24_Bosshard-Fassbind_Prosodic-Feature-Modelling.pdf',
                 keywords: ['AI', 'EDU']
