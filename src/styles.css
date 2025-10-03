@@ -68,6 +68,8 @@ html, body {
   -ms-user-select: none;
   user-select: none;
   -webkit-touch-callout: none;
+
+  overscroll-behavior: none;
 }
 
 @font-face {
