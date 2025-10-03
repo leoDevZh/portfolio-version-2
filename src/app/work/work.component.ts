@@ -127,7 +127,7 @@ import {BasicIndexIndicatorComponent} from "../utils/basic-index-indicator.compo
   styles: [`
     :host {
       width: 100vw;
-      min-height: 100vh;
+      height: 100dvh;
       display: flex;
       flex-direction: column;
       align-items: center;

@@ -201,9 +201,9 @@ export interface CompanyCardData {
 
     @media (max-width: 768px) {
       :host {
-        height: fit-content;
+        height: 100dvh;
         grid-template-columns: 1fr;
-        grid-template-rows: auto auto auto;
+        grid-template-rows: max-content max-content max-content max-content;
         gap: var(--margin-m);
       }
 
