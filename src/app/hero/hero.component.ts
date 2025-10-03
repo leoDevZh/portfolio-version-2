@@ -98,6 +98,12 @@ import {ElementAnimatorComponent} from "../utils/element-animator.component";
       .text-container {
         width: 80vw;
       }
+      #title {
+        flex-direction: column;
+      }
+      #title > * {
+        margin-left: 0;
+      }
     }
 
     @media(max-width: 364px) {
